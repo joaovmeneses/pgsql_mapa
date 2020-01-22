@@ -20,8 +20,8 @@ Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
             <select class="form form-control" id="select_um" onchange="passoUm()">
                 <option value="ESTADO">Rio Grande do Norte</option>
                 <option value="MUNICIPIO">Municípios</option>
-                <option value="MESORREGIOES">Mesorregiões</option>
-                <option value="MICRORREGIOES">Microrregiões</option>
+                <option value="MESORREGIAO">Mesorregiões</option>
+                <option value="MICRORREGIAO">Microrregiões</option>
             </select>
 
             <div hidden id="div_municipios">
@@ -112,7 +112,7 @@ CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
 				$('#select_mesorregioes').prop('selectedIndex',0);
 				$('#select_microrregioes').prop('selectedIndex',0);
 
-            } else if ($("#select_um").val() == "MESORREGIOES")
+            } else if ($("#select_um").val() == "MESORREGIAO")
             {
 
                 $("#div_mesorregioes").show();
@@ -122,7 +122,7 @@ CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
 				$('#select_municipios').prop('selectedIndex',0);
 				$('#select_microrregioes').prop('selectedIndex',0);
 
-            } else if ($("#select_um").val() == "MICRORREGIOES")
+            } else if ($("#select_um").val() == "MICRORREGIAO")
             {
                 $("#div_microrregioes").show();
                 $("#div_municipios").hide();
@@ -144,10 +144,21 @@ CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
 		var select_um = $("#select_um").val();
 		var municipio = $("#select_municipios").val();
 		var mesorregiao = $("#select_mesorregioes").val();
-		var microrregioes = $("#select_microrregioes").val();
+		var microrregiao = $("#select_microrregioes").val();
 
-		if(municipio )
-		{}
+		if(municipio != 0)
+		{
+			request_ajax(select_um, municipio);
+		} else if (mesorregiao != 0)
+		{
+			request_ajax(select_um, mesorregiao);
+		} else if(microrregiao != 0)
+		{
+			request_ajax(select_um, microrregiao)
+		} else 
+		{
+			request_ajax(select_um, "")
+		}
 	});
 
 	function request_ajax(select_um, select_dois)
