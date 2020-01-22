@@ -32,6 +32,7 @@ Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
                     <option value="AFONSO BEZERRA">AFONSO BEZERRA</option>
                     <option value="ÁGUA NOVA">ÁGUA NOVA</option>
 					<option value="BARCELONA">BARCELONA</option>
+					<option value="RIO DO FOGO">RIO DO FOGO</option>
                 </select>
             </div>
 
