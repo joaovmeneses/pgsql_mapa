@@ -49,7 +49,7 @@ $dbh = new PDO("pgsql:dbname=$db;host=$host", $username, $password ,$opt);
         $natal='NATAL';
 
         
-       $sql3 = "SELECT * FROM  public.\"__get_relevo_stm30\"('" . $municipio_valor . "','" . $cidade_valor . "')";
+       $sql3 = "SELECT * FROM  public.\"__get_parque_eolico\"('" . $municipio_valor . "','" . $cidade_valor . "')";
 
 
 

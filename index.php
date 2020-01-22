@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8"/>
 <html>
 <head>
 	<title></title>
@@ -18,7 +19,7 @@ Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
         <div class="col-lg-12">
             <select class="form form-control" id="select_um" onchange="passoUm()">
                 <option value="ESTADO">Rio Grande do Norte</option>
-                <option value="MUNICIPIOS">Municípios</option>
+                <option value="MUNICIPIO">Municípios</option>
                 <option value="MESORREGIOES">Mesorregiões</option>
                 <option value="MICRORREGIOES">Microrregiões</option>
             </select>
@@ -27,6 +28,7 @@ Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
                 <span>Municípios</span>
 <br>
                 <select class="form form-control" id="select_municipios">
+                    <option value="0">SELECIONE</option>
                     <option value="ACARI">ACARI</option>
                     <option value="AÇU">AÇU</option>
                     <option value="AFONSO BEZERRA">AFONSO BEZERRA</option>
@@ -40,6 +42,7 @@ Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
                 <span>Mesorregiões</span>
 <br>
                 <select class="form form-control" id="select_mesorregioes">
+					<option value="0">SELECIONE</option>
                     <option value="AGRESTE POTIGUAR">AGRESTE POTIGUAR</option>
                     <option value="CENTRAL POTIGUAR">CENTRAL POTIGUAR</option>
                     <option value="LESTE POTIGUAR">LESTE POTIGUAR</option>
@@ -51,6 +54,7 @@ Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
                 <span>Mesorregiões</span>
 <br>
                 <select class="form form-control" id="select_microrregioes">
+                    <option value="0">SELECIONE</option>
                     <option value="AGRESTE POTIGUAR">AGRESTE POTIGUAR</option>
                     <option value="ANGICOS">ANGICOS</option>
                     <option value="BAIXA VERDE">BAIXA VERDE</option>
@@ -91,14 +95,22 @@ CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
                 $("#div_municipios").hide();
                 $("#div_mesorregioes").hide();
                 $("#div_microrregioes").hide();
+				
+				$('#select_municipios').prop('selectedIndex',0);
+				$('#select_mesorregioes').prop('selectedIndex',0);
+				$('#select_microrregioes').prop('selectedIndex',0);
+				
             }
 
-            else if($("#select_um").val() == "MUNICIPIOS")
+            else if($("#select_um").val() == "MUNICIPIO")
             {
 
                 $("#div_municipios").show();
                 $("#div_mesorregioes").hide();
                 $("#div_microrregioes").hide();
+
+				$('#select_mesorregioes').prop('selectedIndex',0);
+				$('#select_microrregioes').prop('selectedIndex',0);
 
             } else if ($("#select_um").val() == "MESORREGIOES")
             {
@@ -107,11 +119,17 @@ CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
                 $("#div_municipios").hide();
                 $("#div_microrregioes").hide();
 
+				$('#select_municipios').prop('selectedIndex',0);
+				$('#select_microrregioes').prop('selectedIndex',0);
+
             } else if ($("#select_um").val() == "MICRORREGIOES")
             {
                 $("#div_microrregioes").show();
                 $("#div_municipios").hide();
                 $("#div_mesorregioes").hide();
+
+				$('#select_municipios').prop('selectedIndex',0);
+				$('#select_mesorregioes').prop('selectedIndex',0);
 
             }
         }
@@ -121,30 +139,24 @@ CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
 	//	alert('Terminou de carregar a página');
 	});
 
-	//Função de acessar o ajax após clicar no botão
 	$("#btn").click(function() {
-		// alert('O botão foi clicado');
 
-		// var valor_do_form = $("#valor_form").val();
-		// var valor_do_form2 = $("#valor_form2").val();
+		var select_um = $("#select_um").val();
+		var municipio = $("#select_municipios").val();
+		var mesorregiao = $("#select_mesorregioes").val();
+		var microrregioes = $("#select_microrregioes").val();
 
-		var municipio_form = $("#select_um").val();
-		var cidade_form = $("#select_municipios").val();
-		console.log(municipio_form);
-		console.log(cidade_form);
+		if(municipio )
+		{}
+	});
 
-	//	var camada1 = $("#camada1_input").val();
-	//	var camada2 = $("#camada2_input").val();
-	//	var camada3 = $("#camada3_input").val();
-
-
-
-		//Requisição ajax
+	function request_ajax(select_um, select_dois)
+	{
 		$.ajax({
 			type:'get', //metodo da requisição pode ser get ou post, mas vai variar de acordo com a necessidade
 			//url:'arquivo_sem_classe.php?municipio_form=' + municipio_form + '&camada1='+camada1+'&camada2='+camada2+'&camada3='+camada3,
 		
-			url:'arquivo_sem_classe.php?municipio_form='+municipio_form+'&cidade_form='+cidade_form,
+			url:'arquivo_sem_classe.php?municipio_form='+select_um+'&cidade_form='+select_dois,
 			//url:'arquivo_sem_classe.php?parametro1=' + valor_do_form + '&parametro2=' + valor_do_form2, // url que você quer fazer a requisição
 			success: function(resultado_do_arquivo_sem_classe){
 
@@ -160,6 +172,6 @@ CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
 
 			}	
 		});
-	});
+	}
 
 </script>
