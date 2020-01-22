@@ -352,4 +352,29 @@ Escolha:
 		});
 	}
 
+	function getCheckeds(name, lista)
+    {
+        $.each($("input[name='"+name+"']:checked"), function(){
+            lista.push($(this).val());
+        });
+
+        return lista;
+    }
+
+    function Concluir()
+    {
+        
+        //LISTAS
+        var lista_infra_energia = [];
+        var list_infra_transporte = [];
+        
+        //CHAMADA DAS FUNÇÕES
+        lista_infra_energia = getCheckeds("infra_energia", lista_infra_energia);
+        //lista_infra_transporte = getCheckeds("infra_transporte", lista_infra_transporte);
+        
+        //CONSOLE.LOG - tirar após os testes
+        
+        console.log(lista_infra_energia);
+    }
+
 </script>
