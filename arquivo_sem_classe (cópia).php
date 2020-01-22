@@ -26,7 +26,7 @@ $opt = [ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 try{
 // create a PostgreSQL database connection
 //$conn = new PDO($dsn);
-$dbh = new PDO("pgsql:dbname=$db;host=$host", $username, $password ,$opt);
+$dbh = new PDO("pgsql:dbname=$db;host=$host", $username, $password ,$opt); 
  
 // display a message if connected to the PostgreSQL successfully
     if($dbh){
