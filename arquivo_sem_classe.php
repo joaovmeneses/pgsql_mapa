@@ -11,11 +11,11 @@ $cidade_valor = $_GET['cidade_form'];
 
 
 
-$host = 'localhost';
+$host = '127.0.0.1';
 $db='bancoamanda';
-$username = 'felipe';
-$password = 'geoserver';
-$dsn = "pgsql:host=$host;port=5432;dbname=$db;user=$username;password=$password";
+$username = 'Felipe';
+$password = 'e0licas2013';
+$dsn = "pgsql:host=$host;port=59924;dbname=$db;user=$username;password=$password";
 
 $opt = [ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
          PDO:: ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
