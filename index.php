@@ -2,19 +2,19 @@
 <meta charset="utf-8"/>
 <html>
 <head>
-	<title></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
 <body>
 
 Por Favor insira o nome do Município abaixo!
 <br>
 <br>
 
-<!-- <input type="input" id="valor_form" autofocus="true" /> -->
-<!-- <input type="input" id="valor_form2"/> -->
-
-Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
+Escolha:
 <br><br>
         <div class="col-lg-12">
             <select class="form form-control" id="select_um" onchange="passoUm()">
@@ -63,13 +63,180 @@ Escolha: <!--br /><input type="input" id="municipio_input" autofocus="true" /-->
             </div>
         </div>
 <br><br>
-Cidade: <br /><input type="input" id="cidade_input" autofocus="true" />
+ <!-- ACORDEON -->
+ <div class="col-lg-12">
+            <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Infraestrutura
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="LINHAS DE TRANSMISSAO EXISTENTES" name="infra_energia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Linhas de Transmissão Existentes
+                                </label>
+                            </div>
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="PARQUES EOLICOS" name="infra_energia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Parques Eólicos
+                                </label>
+                            </div>
 
-<!--CAMADA1: <br /><input type="input" id="camada1_input" autofocus="true" />
-CAMADA2: <br /><input type="input" id="camada2_input" autofocus="true" />
-CAMADA3: <br /><input type="input" id="camada3_input" autofocus="true" />-->
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="SUBESTACAO CONTRATADAS" name="infra_energia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Subestação Contratadas
+                                </label>
+                            </div>
 
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="SUBESTACAO EXISTENTES" name="infra_energia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Subestação Existentes
+                                </label>
+                            </div>
 
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="LINHAS DE TRANSMISSAO PLANEJADAS" name="infra_energia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Linhas de Transmissão Planejadas
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Infraestrutura de Transportes
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Rodovias-DNIT
+                                </label>
+                            </div>
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Estradas-IBGE
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Aeródromos
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Dutovias
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Ferrovias
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <label class="form-check-label" for="defaultCheck1">Linhas de Cabotagem</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <label class="form-check-label" for="defaultCheck1">Portos</label>
+                            </div>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Camada 3
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    checkbox
+                                </label>
+                            </div>
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    checkbox
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    checkbox
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    checkbox
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    checkbox
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">checkbox</label>
+                            </div>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
 
 <br>
 <br>
