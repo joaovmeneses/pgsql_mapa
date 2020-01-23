@@ -179,6 +179,7 @@ Escolha:
                     </div>
                   </div>
                 </div>
+
                 <div class="card">
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
@@ -192,42 +193,42 @@ Escolha:
                         <div class="row">
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="DOPPLER" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="DOPPLER" name="pontos_referencia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Doppler
                                 </label>
                             </div>
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="ESTACAO POLIGONAL" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="ESTACAO POLIGONAL" name="pontos_referencia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Estação Poligonal
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="ESTACAO GRAVIMETRICA" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="ESTACAO GRAVIMETRICA" name="pontos_referencia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Estação Gravimétrica
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="GPS" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="GPS" name="pontos_referencia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     GPS
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="REFERENCIA DE NIVEL" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="REFERENCIA DE NIVEL" name="pontos_referencia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Referencia de Nível
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="VERTICE DE TRIANGULACAO" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="VERTICE DE TRIANGULACAO" name="pontos_referencia">
                                 <label class="form-check-label" for="defaultCheck1">Vértice de Triangulação</label>
                             </div>
 
@@ -236,6 +237,243 @@ Escolha:
                   </div>
                 </div>
               </div>
+
+              <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFive">
+                        Geologia
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="AFLORAMENTO" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Afloramento
+                                </label>
+                            </div>
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ESTRACAO MINERAL" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Estração Mineral
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="DIQUE" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Dique
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ESTRUTURA" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Estrutura
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="RIFT" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Rift
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="LITOLOGIA" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">Litologia</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="GEOMORFOLOGIA" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">Geomorfologia</label>
+                            </div>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>  
+
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseSix">
+                        Recursos Hídricos
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="DRENAGENS-ANA" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Drenagens-ANA
+                                </label>
+                            </div>
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="HIDROGRAFIA INTEGRADA-ANA" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Hidrografia Integrada-ANA
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="RESERVATORIOS-ANA" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Reservatórios-ANA
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="DOMINIOS HIDROGEOLOGICOS" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Dominios Hidrogeologicos
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="POÇOS-CPRM" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Poços-CPRM
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ADUTORAS-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Adutoras-SERHID</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="BACIAS HIDROGRAFICAS-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Bácias Hidrográficas-SERHID</label>
+                            </div>
+                            
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="HIDROGRAFIA-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Hidrografia-SERHID
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="POÇOS-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Poços-SERHID</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="RESERVATORIOS-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Reservatórios-SERHID</label>
+                            </div>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>  
+
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseSeven">
+                        Recurso Eólico
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="VELOCIDADE 200M" name="recurso_eolico">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Velocidade 200m
+                                </label>
+                            </div>
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="VELOCIDADE 100M" name="recurso_eolico">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Velocidade 100m
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="VELOCIDADE 50M" name="recurso_eolico">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Velocidade 50m
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>  
+
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseEight">
+                        Recurso Solar
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseEight" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="AFLORAMENTO" name="recurso_solar">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Difusa
+                                </label>
+                            </div>
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ESTRACAO MINERAL" name="recurso_solar">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Direta
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="DIQUE" name="recurso_solar">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Foto Ativa
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ESTRUTURA" name="recurso_solar">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Global
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="RIFT" name="recurso_solar">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Plano Inclinado
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="LITOLOGIA" name="recurso_solar">
+                                <label class="form-check-label" for="defaultCheck1">Usinas Fotovoltaicas</label>
+                            </div>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>  
+
         </div>
 
 <br>
