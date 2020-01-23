@@ -131,47 +131,47 @@ Escolha:
                         <div class="row">
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <input class="form-check-input" type="checkbox" value="RODOVIAS-DNIT" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Rodovias-DNIT
                                 </label>
                             </div>
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <input class="form-check-input" type="checkbox" value="ESTRADAS-IBGE" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Estradas-IBGE
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <input class="form-check-input" type="checkbox" value="AERODOMOS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Aeródromos
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <input class="form-check-input" type="checkbox" value="DUTOVIAS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Dutovias
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <input class="form-check-input" type="checkbox" value="FERROVIAS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Ferrovias
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <input class="form-check-input" type="checkbox" value="LINHAS DE CABOTAGEM" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">Linhas de Cabotagem</label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" name="infra_transporte">
+                                <input class="form-check-input" type="checkbox" value="PORTOS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">Portos</label>
                             </div>
 
@@ -241,7 +241,7 @@ Escolha:
 <br>
 <br>
 
- <input id="btn" type="button" value="Consultar" />
+ <input id="btn" type="button" value="Consultar" onclick="concluir()" />
 <br>
 <br>
 
@@ -330,29 +330,16 @@ Escolha:
 
 	function request_ajax(select_um, select_dois)
 	{
-		$.ajax({
-			type:'get', //metodo da requisição pode ser get ou post, mas vai variar de acordo com a necessidade
-			//url:'arquivo_sem_classe.php?municipio_form=' + municipio_form + '&camada1='+camada1+'&camada2='+camada2+'&camada3='+camada3,
-		
-			url:'arquivo_sem_classe.php?municipio_form='+select_um+'&cidade_form='+select_dois,
-			//url:'arquivo_sem_classe.php?parametro1=' + valor_do_form + '&parametro2=' + valor_do_form2, // url que você quer fazer a requisição
-			success: function(resultado_do_arquivo_sem_classe){
+		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/teste';
 
-				if (resultado_do_arquivo_sem_classe != 0) {
-				$("#resultado").html(resultado_do_arquivo_sem_classe); //JQuery que vai fazer alterações na página em tempo real
-				    $("#resultado1").html(resultado_do_arquivo_sem_classe); //JQuery que vai fazer alterações na página em tempo real
-					$("#resultado2").html(resultado_do_arquivo_sem_classe); //JQuery que vai fazer alterações na página em tempo real
-		
-					$("#resultado3").html(resultado_do_arquivo_sem_classe); //JQuery que vai fazer alterações na página em tempo real
-				} else {
-					$("#resultado").html("Não houve resultado de acordo com os seus parametros"); //JQuery que vai fazer alterações na página em tempo real
-				}
+		$.post(url, {"info1": select_um, "info2": select_dois}, function(data)
+		{
+			console.log(data);
+		})
 
-			}	
-		});
 	}
 
-	function getCheckeds(name, lista)
+	function getCheckeds(name, lista)	
     {
         $.each($("input[name='"+name+"']:checked"), function(){
             lista.push($(this).val());
@@ -361,20 +348,25 @@ Escolha:
         return lista;
     }
 
-    function Concluir()
+    function concluir()
     {
         
         //LISTAS
         var lista_infra_energia = [];
-        var list_infra_transporte = [];
+        var lista_infra_transporte = [];
         
         //CHAMADA DAS FUNÇÕES
         lista_infra_energia = getCheckeds("infra_energia", lista_infra_energia);
-        //lista_infra_transporte = getCheckeds("infra_transporte", lista_infra_transporte);
+        lista_infra_transporte = getCheckeds("infra_transporte", lista_infra_transporte);
         
         //CONSOLE.LOG - tirar após os testes
-        
+        console.log("lista_infra_energia");
         console.log(lista_infra_energia);
+		console.log("------------------");
+
+		console.log("lista_infra_transporte");
+        console.log(lista_infra_transporte);
+		console.log("------------------")
     }
 
 </script>
