@@ -101,7 +101,7 @@ Escolha:
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="SUBESTACAO EXISTENTES" name="infra_energia">
+                                <input class="form-check-input" type="checkbox" value="SUBESTACAO EXISTENTE" name="infra_energia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Subestação Existentes
                                 </label>
@@ -183,7 +183,7 @@ Escolha:
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Camada 3
+                        Pontos de referencia
                       </button>
                     </h5>
                   </div>
@@ -192,43 +192,43 @@ Escolha:
                         <div class="row">
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="DOPPLER" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    checkbox
+                                    Doppler
                                 </label>
                             </div>
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="ESTACAO POLIGONAL" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    checkbox
+                                    Estação Poligonal
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="ESTACAO GRAVIMETRICA" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    checkbox
+                                    Estação Gravimétrica
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="GPS" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    checkbox
+                                    GPS
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="REFERENCIA DE NIVEL" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    checkbox
+                                    Referencia de Nível
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">checkbox</label>
+                                <input class="form-check-input" type="checkbox" value="VERTICE DE TRIANGULACAO" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">Vértice de Triangulação</label>
                             </div>
 
                         </div>
