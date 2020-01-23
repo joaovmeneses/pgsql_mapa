@@ -341,7 +341,7 @@ Escolha:
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="POÇOS-CPRM" name="recursos_hidricos">
+                                <input class="form-check-input" type="checkbox" value="POCOS-CPRM" name="recursos_hidricos">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Poços-CPRM
                                 </label>
@@ -365,7 +365,7 @@ Escolha:
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="POÇOS-SERHID" name="recursos_hidricos">
+                                <input class="form-check-input" type="checkbox" value="POCOS-SERHID" name="recursos_hidricos">
                                 <label class="form-check-label" for="defaultCheck1">Poços-SERHID</label>
                             </div>
 
@@ -430,42 +430,42 @@ Escolha:
                         <div class="row">
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="AFLORAMENTO" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="DIFUSA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Difusa
                                 </label>
                             </div>
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="ESTRACAO MINERAL" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="DIRETA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Direta
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="DIQUE" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="FOTO ATIVA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Foto Ativa
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="ESTRUTURA" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="GLOBAL" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Global
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="RIFT" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="PLANO INCLINADO" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Plano Inclinado
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="LITOLOGIA" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="USINA FOTOVOLTAICA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">Usinas Fotovoltaicas</label>
                             </div>
 
@@ -566,11 +566,12 @@ Escolha:
 		}
 	});
 
-	function request_ajax(select_um, select_dois, infra_energia, infra_transporte)
+	function request_ajax(select_um, select_dois, infra_energia, infra_transporte, pontos_referencia, geologia, recursos_hidricos, recurso_eolico, recurso_solar)
 	{
 		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/request';
 
-		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte }, function(data)
+		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte,
+        "pontos_referencia" : pontos_referencia, "geologia" : geologia, "recursos_hidricos" : recursos_hidricos, "recurso_eolico" : recurso_eolico, "recurso_solar" : recurso_solar}, function(data)
 		{
 			console.log(data);
 		})
@@ -590,28 +591,63 @@ Escolha:
     {
         
         //LISTAS
-        var lista_infra_energia = [];
-        var lista_infra_transporte = [];
-        
+        var infra_energia = [];
+        var infra_transporte = [];
+        var pontos_referencia = [];
+        var geologia = [];
+        var recursos_hidricos = [];
+        var recurso_eolico = [];
+        var recurso_solar = [];
+
         //CHAMADA DAS FUNÇÕES
-        lista_infra_energia = getCheckeds("infra_energia", lista_infra_energia);
-        lista_infra_transporte = getCheckeds("infra_transporte", lista_infra_transporte);
+        infra_energia = getCheckeds("infra_energia", infra_energia);
+        infra_transporte = getCheckeds("infra_transporte", infra_transporte);
+        pontos_referencia = getCheckeds("pontos_referencia", pontos_referencia);
+        geologia = getCheckeds("geologia", geologia);
+        recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
+        recurso_eolico = getCheckeds("recurso_eolico", recurso_eolico);
+        recurso_solar = getCheckeds("recurso_solar", recurso_solar);
         
         //CONSOLE.LOG - tirar após os testes
         console.log("lista_infra_energia");
-        console.log(lista_infra_energia);
+        console.log(infra_energia);
 		console.log("------------------");
 
 		console.log("lista_infra_transporte");
-        console.log(lista_infra_transporte);
-		console.log("------------------")
+        console.log(infra_transporte);
+		console.log("------------------");
+
+        console.log("pontos_referencia");
+        console.log(pontos_referencia);
+		console.log("------------------");
+
+        console.log("geologia");
+        console.log(geologia);
+		console.log("------------------");
+
+		console.log("recursos_hidricos");
+        console.log(recursos_hidricos);
+		console.log("------------------");
+
+        console.log("recurso_eolico");
+        console.log(recurso_eolico);
+		console.log("------------------");
+
+        console.log("recurso_solar");
+        console.log(recurso_solar);
+		console.log("------------------");
 
         //Fazer o request
         request_ajax(
             select_um,
             select_dois, 
-            lista_infra_energia, 
-            lista_infra_transporte
+            infra_energia, 
+            infra_transporte,
+            pontos_referencia,
+            geologia,
+            recursos_hidricos,
+            recurso_eolico,
+            recurso_solar
             );
     }
 
