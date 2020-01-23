@@ -315,24 +315,24 @@ Escolha:
 
 		if(municipio != 0)
 		{
-			request_ajax(select_um, municipio);
+			concluir(select_um, municipio);
 		} else if (mesorregiao != 0)
 		{
-			request_ajax(select_um, mesorregiao);
+			concluir(select_um, mesorregiao);
 		} else if(microrregiao != 0)
 		{
-			request_ajax(select_um, microrregiao)
+			concluir(select_um, microrregiao)
 		} else 
 		{
-			request_ajax(select_um, "")
+			concluir(select_um, "")
 		}
 	});
 
-	function request_ajax(select_um, select_dois)
+	function request_ajax(select_um, select_dois, infra_energia, infra_transporte)
 	{
-		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/teste';
+		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/request';
 
-		$.post(url, {"info1": select_um, "info2": select_dois}, function(data)
+		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte }, function(data)
 		{
 			console.log(data);
 		})
@@ -348,7 +348,7 @@ Escolha:
         return lista;
     }
 
-    function concluir()
+    function concluir(select_um, select_dois)
     {
         
         //LISTAS
@@ -367,6 +367,14 @@ Escolha:
 		console.log("lista_infra_transporte");
         console.log(lista_infra_transporte);
 		console.log("------------------")
+
+        //Fazer o request
+        request_ajax(
+            select_um,
+            select_dois, 
+            lista_infra_energia, 
+            lista_infra_transporte
+            );
     }
 
 </script>
