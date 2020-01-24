@@ -29,12 +29,6 @@ Escolha:
 <br>
                 <select class="form form-control" id="select_municipios">
                     <option value="0">SELECIONE</option>
-                    <option value="ACARI">ACARI</option>
-                    <option value="AÇU">AÇU</option>
-                    <option value="AFONSO BEZERRA">AFONSO BEZERRA</option>
-                    <option value="ÁGUA NOVA">ÁGUA NOVA</option>
-					<option value="BARCELONA">BARCELONA</option>
-					<option value="RIO DO FOGO">RIO DO FOGO</option>
                 </select>
             </div>
 
@@ -79,35 +73,34 @@ Escolha:
                     <div class="card-body">
                         <div class="row">
                         
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="LINHAS DE TRANSMISSAO EXISTENTES" name="infra_energia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Linhas de Transmissão Existentes
                                 </label>
                             </div>
-                        
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="PARQUES EOLICOS" name="infra_energia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Parques Eólicos
                                 </label>
                             </div>
 
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="SUBESTACAO CONTRATADAS" name="infra_energia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Subestação Contratadas
                                 </label>
                             </div>
 
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="SUBESTACAO EXISTENTE" name="infra_energia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Subestação Existentes
                                 </label>
                             </div>
 
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="LINHAS DE TRANSMISSAO PLANEJADAS" name="infra_energia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Linhas de Transmissão Planejadas
@@ -130,28 +123,30 @@ Escolha:
                     <div class="card-body">
                         <div class="row">
                         
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="RODOVIAS-DNIT" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Rodovias-DNIT
                                 </label>
                             </div>
+                            <br>
                         
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="ESTRADAS-IBGE" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Estradas-IBGE
                                 </label>
                             </div>
+                            <br>
 
-                            <div class="col-lg-2">
+                            <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="AERODOMOS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Aeródromos
                                 </label>
                             </div>
 
-                            <div class="col-lg-2">
+                            <!--div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="DUTOVIAS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Dutovias
@@ -173,14 +168,14 @@ Escolha:
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="PORTOS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">Portos</label>
-                            </div>
+                            </div-->
 
                         </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="card">
+                <!--div class="card">
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -236,7 +231,7 @@ Escolha:
                     </div>
                   </div>
                 </div>
-              </div>
+              </div-->
 
               <div class="card">
                   <div class="card-header" id="headingTwo">
@@ -250,7 +245,7 @@ Escolha:
                     <div class="card-body">
                         <div class="row">
                         
-                            <div class="col-lg-2">
+                            <!--div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="AFLORAMENTO" name="geologia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Afloramento
@@ -288,7 +283,7 @@ Escolha:
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="LITOLOGIA" name="geologia">
                                 <label class="form-check-label" for="defaultCheck1">Litologia</label>
-                            </div>
+                            </div-->
 
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="GEOMORFOLOGIA" name="geologia">
@@ -300,7 +295,7 @@ Escolha:
                   </div>
                 </div>  
 
-                <div class="card">
+                <!--div class="card">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -377,9 +372,9 @@ Escolha:
                         </div>
                     </div>
                   </div>
-                </div>  
+                </div-->  
 
-                <div class="card">
+                <!--div class="card">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -415,7 +410,7 @@ Escolha:
                         </div>
                     </div>
                   </div>
-                </div>  
+                </div-->  
 
                 <div class="card">
                   <div class="card-header" id="headingTwo">
@@ -429,7 +424,7 @@ Escolha:
                     <div class="card-body">
                         <div class="row">
                         
-                            <div class="col-lg-2">
+                            <!--div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="DIFUSA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Difusa
@@ -462,10 +457,10 @@ Escolha:
                                 <label class="form-check-label" for="defaultCheck1">
                                     Plano Inclinado
                                 </label>
-                            </div>
+                            </div-->
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="USINA FOTOVOLTAICA" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="USINAS FOTOVOLTAICAS" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">Usinas Fotovoltaicas</label>
                             </div>
 
@@ -479,7 +474,7 @@ Escolha:
 <br>
 <br>
 
- <input id="btn" type="button" value="Consultar" onclick="concluir()" />
+ <input id="btn" type="button" value="Consultar"/>
 <br>
 <br>
 
@@ -490,8 +485,32 @@ Escolha:
 </body>
 </html>
 <script>
+    var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/';
+	//Função para executar assim que a página for completamente carregada e montar os selects
+	$(document).ready(function(){
+        //get Municipios
+        $.get(url+'getcidades', function(data)
+        {
+            createSelect(data, "select_municipios", 'nm_municip');
+        });
+        //get Microrregioes
+        $.get(url+'getmicrorregioes', function(data)
+        {
+            createSelect(data, "select_microrregioes", 'nm_micro');
+        });
+	});
 
-	
+    //Função para montas os selects dinamicos
+    function createSelect(lista, id_select, atributo)
+    {
+        for(var i = 0; i < lista.length; i++)
+        {
+            var option = "<option value='" +lista[i][atributo]+ "'>" +lista[i][atributo]+ "</option>"; //criar tag option
+            $("#"+id_select).append(option); 
+        }
+    }
+
+	//Alteração dos selects
 	function passoUm()
         {
             if($("#select_um").val() == "ESTADO")
@@ -539,11 +558,6 @@ Escolha:
             }
         }
 
-	//Função para executar assim que a página for completamente carregada
-	$(document).ready(function(){
-	//	alert('Terminou de carregar a página');
-	});
-
 	$("#btn").click(function() {
 
 		var select_um = $("#select_um").val();
@@ -566,14 +580,14 @@ Escolha:
 		}
 	});
 
-	function request_ajax(select_um, select_dois, infra_energia, infra_transporte, pontos_referencia, geologia, recursos_hidricos, recurso_eolico, recurso_solar)
+	function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, /*recursos_hidricos, recurso_eolico,*/ recurso_solar)
 	{
 		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/request';
 
-		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte,
-        "pontos_referencia" : pontos_referencia, "geologia" : geologia, "recursos_hidricos" : recursos_hidricos, "recurso_eolico" : recurso_eolico, "recurso_solar" : recurso_solar}, function(data)
+		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte, "geologia" : geologia, "recurso_solar" : recurso_solar
+        /*"pontos_referencia" : pontos_referencia, "recursos_hidricos" : recursos_hidricos, "recurso_eolico" : recurso_eolico,*/ }, function(data)
 		{
-			console.log(data);
+            console.log(data);
 		})
 
 	}
@@ -593,60 +607,31 @@ Escolha:
         //LISTAS
         var infra_energia = [];
         var infra_transporte = [];
-        var pontos_referencia = [];
+        //var pontos_referencia = [];
         var geologia = [];
-        var recursos_hidricos = [];
-        var recurso_eolico = [];
+        //var recursos_hidricos = [];
+        //var recurso_eolico = [];
         var recurso_solar = [];
 
         //CHAMADA DAS FUNÇÕES
         infra_energia = getCheckeds("infra_energia", infra_energia);
         infra_transporte = getCheckeds("infra_transporte", infra_transporte);
-        pontos_referencia = getCheckeds("pontos_referencia", pontos_referencia);
+        //pontos_referencia = getCheckeds("pontos_referencia", pontos_referencia);
         geologia = getCheckeds("geologia", geologia);
-        recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
-        recurso_eolico = getCheckeds("recurso_eolico", recurso_eolico);
+        //recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
+        //recurso_eolico = getCheckeds("recurso_eolico", recurso_eolico);
         recurso_solar = getCheckeds("recurso_solar", recurso_solar);
         
-        //CONSOLE.LOG - tirar após os testes
-        console.log("lista_infra_energia");
-        console.log(infra_energia);
-		console.log("------------------");
-
-		console.log("lista_infra_transporte");
-        console.log(infra_transporte);
-		console.log("------------------");
-
-        console.log("pontos_referencia");
-        console.log(pontos_referencia);
-		console.log("------------------");
-
-        console.log("geologia");
-        console.log(geologia);
-		console.log("------------------");
-
-		console.log("recursos_hidricos");
-        console.log(recursos_hidricos);
-		console.log("------------------");
-
-        console.log("recurso_eolico");
-        console.log(recurso_eolico);
-		console.log("------------------");
-
-        console.log("recurso_solar");
-        console.log(recurso_solar);
-		console.log("------------------");
-
         //Fazer o request
         request_ajax(
             select_um,
             select_dois, 
             infra_energia, 
             infra_transporte,
-            pontos_referencia,
+            //pontos_referencia,
             geologia,
-            recursos_hidricos,
-            recurso_eolico,
+            //recursos_hidricos,
+            //recurso_eolico,
             recurso_solar
             );
     }
