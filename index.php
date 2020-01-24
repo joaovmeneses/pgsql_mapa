@@ -28,7 +28,7 @@ Escolha:
                 <span>Municípios</span>
 <br>
                 <select class="form form-control" id="select_municipios">
-                    <option value="0">SELECIONE</option>
+                    <option value="">SELECIONE</option>
                 </select>
             </div>
 
@@ -36,7 +36,7 @@ Escolha:
                 <span>Mesorregiões</span>
 <br>
                 <select class="form form-control" id="select_mesorregioes">
-					<option value="0">SELECIONE</option>
+					<option value="">SELECIONE</option>
                     <option value="AGRESTE POTIGUAR">AGRESTE POTIGUAR</option>
                     <option value="CENTRAL POTIGUAR">CENTRAL POTIGUAR</option>
                     <option value="LESTE POTIGUAR">LESTE POTIGUAR</option>
@@ -48,11 +48,7 @@ Escolha:
                 <span>Mesorregiões</span>
 <br>
                 <select class="form form-control" id="select_microrregioes">
-                    <option value="0">SELECIONE</option>
-                    <option value="AGRESTE POTIGUAR">AGRESTE POTIGUAR</option>
-                    <option value="ANGICOS">ANGICOS</option>
-                    <option value="BAIXA VERDE">BAIXA VERDE</option>
-                    <option value="BORBOREMA POTIGUAR">BORBOREMA POTIGUAR</option>
+                    <option value="">SELECIONE</option>
                 </select>
             </div>
         </div>
@@ -479,12 +475,21 @@ Escolha:
 <br>
 
 <div id="resultado">
-	resultado inicial
+    Usinas Fotovoltaicas
+    <br>
+    <table id="table_usina_fotovoltaica" class="table">
+    </table>
+
+    Geologia
+    <br>
+    <table id="table_geologia" class="table">
+    </table>
 </div>
 
 </body>
 </html>
 <script>
+
     var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/';
 	//Função para executar assim que a página for completamente carregada e montar os selects
 	$(document).ready(function(){
@@ -580,18 +585,38 @@ Escolha:
 		}
 	});
 
-	function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, /*recursos_hidricos, recurso_eolico,*/ recurso_solar)
+    //requisição na API
+    function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, /*recursos_hidricos, recurso_eolico,*/ recurso_solar)
 	{
 		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/request';
 
 		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte, "geologia" : geologia, "recurso_solar" : recurso_solar
         /*"pontos_referencia" : pontos_referencia, "recursos_hidricos" : recursos_hidricos, "recurso_eolico" : recurso_eolico,*/ }, function(data)
 		{
-            console.log(data);
-		})
+
+            // ### Montar table Usinas Fotovoltaicas ###
+            if (typeof data['Recurso Solar'] !== 'undefined') 
+            {
+                montarTableUsinaFotovoltaica(data['Recurso Solar']['USINAS FOTOVOLTAICAS']);
+            } else 
+            {
+                $("#table_usina_fotovoltaica").empty();
+            }
+
+            // ### Montar table Geologia ###
+            if (typeof data['Geologia'] !== 'undefined') 
+            {
+                montarTableGeologia(data['Geologia']['GEOMORFOLOGIA']);
+            } else 
+            {
+                $("#table_geologia").empty();
+            }
+
+		});
 
 	}
-
+    
+    //Verificar checkboxes selecionados
 	function getCheckeds(name, lista)	
     {
         $.each($("input[name='"+name+"']:checked"), function(){
@@ -600,6 +625,7 @@ Escolha:
 
         return lista;
     }
+
 
     function concluir(select_um, select_dois)
     {
@@ -636,4 +662,65 @@ Escolha:
             );
     }
 
+    // [#] MONTAR TABLES
+    
+    //Usina Fotovoltaica
+	function montarTableUsinaFotovoltaica(lista)
+    {
+        var table = $("#table_usina_fotovoltaica");
+        table.empty();
+        table.append("<th>TIPO</th>");
+        table.append("<th>TOTAL</th>");
+        for(var i = 0; i < lista.length; i++)
+        {
+            //Criar linha para a tabela
+            var tr = document.createElement('tr');
+            //criar celulas
+            var td_tipo = document.createElement('td');
+            var td_total = document.createElement('td');
+            //Adicionar valores no td
+            td_tipo.append(lista[i]["tipo"]);
+            td_total.append(lista[i]["total"]);
+            //Adiciona o td no tr
+            tr.append(td_tipo);
+            tr.append(td_total);
+            //Adiciona o tr na table
+            table.append(tr);
+
+        }
+    }
+
+    //Geologia
+    function montarTableGeologia(lista)
+    {
+        var table = $("#table_geologia");
+        table.empty();
+        table.append("<th>TIPO</th>");
+        for(var i = 0; i < lista.length; i++)
+        {
+            //Criar linha para a tabela
+            var tr = document.createElement('tr');
+            //criar celulas
+            var td_tipo = document.createElement('td');
+            //Adicionar valores no td
+            td_tipo.append(lista[i]["tipo"]);
+            //Adiciona o td no tr
+            tr.append(td_tipo);
+            //Adiciona o tr na table
+            table.append(tr);
+
+        }
+    }
+
+
 </script>
+
+<!-- CSS -->
+<style>
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+</style>
