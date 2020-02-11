@@ -138,7 +138,7 @@ Escolha:
                             <div class="col-lg-12">
                                 <input class="form-check-input" type="checkbox" value="AERODOMOS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Aeródromos
+                                    Aeródomos
                                 </label>
                             </div>
 
@@ -475,11 +475,55 @@ Escolha:
 <br>
 
 <div id="resultado">
+    <!-- INFRA ENERGIA -->
+    Linhas de Transmissão Existentes
+    <br>
+    <table id="table_linhas_existentes" class="table">
+    </table>
+
+    Parques Eólicos
+    <br>
+    <table id="table_parques_eolicos" class="table">
+    </table>
+
+    Subestação Contratadas
+    <br>
+    <table id="table_subestacao_contratada" class="table">
+    </table>
+
+    Subestação Existentes
+    <br>
+    <table id="table_subestacao_existente" class="table">
+    </table>
+
+    Linhas de Transmissão Planejadas
+    <br>
+    <table id="table_linhas_planejadas" class="table">
+    </table>
+    
+    <!-- INFRA TRANSPORTE -->
+    Rodovias-DNIT
+    <br>
+    <table id="table_rodovias_dnit" class="table">
+    </table>
+
+    Estradas-IBGE
+    <br>
+    <table id="table_estradas_ibge" class="table">
+    </table>
+
+    Aeródomos
+    <br>
+    <table id="table_aerodomos" class="table">
+    </table>
+
+    <!-- RECURSO SOLAR -->
     Usinas Fotovoltaicas
     <br>
     <table id="table_usina_fotovoltaica" class="table">
     </table>
 
+    <!-- GEOLOGIA -->
     Geologia
     <br>
     <table id="table_geologia" class="table">
@@ -594,13 +638,101 @@ Escolha:
         /*"pontos_referencia" : pontos_referencia, "recursos_hidricos" : recursos_hidricos, "recurso_eolico" : recurso_eolico,*/ }, function(data)
 		{
 
-            // ### Montar table Usinas Fotovoltaicas ###
-            if (typeof data['Recurso Solar'] !== 'undefined') 
-            {
-                montarTableUsinaFotovoltaica(data['Recurso Solar']['USINAS FOTOVOLTAICAS']);
+            // ### Montar Table Infra Energia ###
+            if (typeof data['Infraestrutura Energia'] !== 'undefined')
+            {   
+
+                //Verificar LINHAS DE TRANSMISSÃO EXISTENTES
+                if (typeof data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO EXISTENTES'] !== 'undefined')
+                {
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO EXISTENTES'], "EXISTENTE", "table_linhas_existentes");
+                } else 
+                {
+                    $("#table_linhas_existentes").empty();
+                }
+
+                //Verificar PARQUES EÓLICOS
+                if (typeof data['Infraestrutura Energia']['PARQUES EOLICOS'] !== 'undefined')
+                {
+                    montarTableInfraTransporte(data['Infraestrutura Energia']['PARQUES EOLICOS'], "tipo", "table_parques_eolicos");
+                } else 
+                {
+                    $("#table_parques_eolicos").empty();
+                }
+
+                //Verificar SUBESTAÇÃO CONTRATADA
+                if (typeof data['Infraestrutura Energia']['SUBESTACAO CONTRATADAS'] !== 'undefined')
+                {
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['SUBESTACAO CONTRATADAS'], "CONTRATADA", "table_subestacao_contratada");
+                } else 
+                {
+                    $("#table_subestacao_contratada").empty();
+                }
+
+                //Verificar SUBESTACAO EXISTENTE
+                if (typeof data['Infraestrutura Energia']['SUBESTACAO EXISTENTE'] !== 'undefined')
+                {
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['SUBESTACAO EXISTENTE'], "EXISTENTE", "table_subestacao_existente");
+                } else 
+                {
+                    $("#table_subestacao_existente").empty();
+                }
+
+                //Verificar LINHAS DE TRANSMISSÃO PLANEJADAS
+                if (typeof data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO PLANEJADAS'] !== 'undefined')
+                {
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO PLANEJADAS'], "PLANEJADA", "table_linhas_planejadas");
+                } else 
+                {
+                    $("#table_linhas_planejadas").empty();
+                }
+
             } else 
-            {
-                $("#table_usina_fotovoltaica").empty();
+            {   //Apagar tables se n forem selecionadas
+                $("#table_linhas_existentes").empty();
+                $("#table_parques_eolicos").empty();
+                $("#table_subestacao_contratada").empty();
+                $("#table_subestacao_existente").empty();
+                $("#table_linhas_planejadas").empty();
+
+            }
+
+            // ### Montar table Infra Transporte ###
+            if (typeof data['Infraestrutura Transporte'] !== 'undefined')
+            {   
+                //Verificar RODOVIAS-DNIT
+                if (typeof data['Infraestrutura Transporte']['RODOVIAS-DNIT'] !== 'undefined')
+                {
+                    montarTableInfraTransporte(data['Infraestrutura Transporte']['RODOVIAS-DNIT'], "tipo", "table_rodovias_dnit");
+                } else 
+                {
+                    $("#table_rodovias_dnit").empty();
+                }
+
+                //Verificar ESTRADAS-IBGE
+                if (typeof data['Infraestrutura Transporte']['ESTRADAS-IBGE'] !== 'undefined')
+                {
+                    montarTableInfraTransporte(data['Infraestrutura Transporte']['ESTRADAS-IBGE'], "tipo", "table_estradas_ibge");
+                } else 
+                {
+                    $("#table_estradas_ibge").empty();
+                }
+
+                //Verificar AERÓDOMOS
+                if (typeof data['Infraestrutura Transporte']['AERODOMOS'] !== 'undefined')
+                {
+                    montarTableInfraTransporte(data['Infraestrutura Transporte']['AERODOMOS'], "cod_uso", "table_aerodomos");
+                } else 
+                {
+                    $("#table_aerodomos").empty();
+                }
+
+            } else 
+            {   //Apagar tables se n forem selecionadas
+                $("#table_rodovias_dnit").empty();
+                $("#table_estradas_ibge").empty();
+                $("#table_aerodomos").empty();
+
             }
 
             // ### Montar table Geologia ###
@@ -611,6 +743,19 @@ Escolha:
             {
                 $("#table_geologia").empty();
             }
+
+
+            // ### Montar table Usinas Fotovoltaicas ###
+            if (typeof data['Recurso Solar'] !== 'undefined') 
+            {
+                montarTableUsinaFotovoltaica(data['Recurso Solar']['USINAS FOTOVOLTAICAS']);
+            } else 
+            {
+                $("#table_usina_fotovoltaica").empty();
+            }
+
+            print();
+
 
 		});
 
@@ -712,15 +857,73 @@ Escolha:
         }
     }
 
+    //Infraestrutura Transportes
+    function montarTableInfraTransporte(lista, tipo, table_id)
+    {
+        var table = $("#"+table_id);
+        table.empty();
+        table.append("<th>TIPO</th>");
+        table.append("<th>TOTAL</th>");
+        for(var i = 0; i < lista.length; i++)
+        {
+            //Criar linha para a tabela
+            var tr = document.createElement('tr');
+            //criar celulas
+            var td_tipo = document.createElement('td');
+            var td_total = document.createElement('td');
+            //Adicionar valores no td
+            td_tipo.append(lista[i][tipo]);
+            td_total.append(lista[i]["total"]);
+            //Adiciona o td no tr
+            tr.append(td_tipo);
+            tr.append(td_total);
+            //Adiciona o tr na table
+            table.append(tr);
+
+        }
+    }
+
+    //Infraestrutura Energia
+    function montarTableLinhas_Subestacoes(lista, situacao, table_id)
+    {
+        var table = $("#"+table_id);
+        table.empty();
+        table.append("<th>TIPO</th>");
+        table.append("<th>TOTAL</th>");
+        for(var i = 0; i < lista.length; i++)
+        {
+    
+            if(lista[i]["situacao"] == situacao)
+            {
+                console.log('ok');
+                //Criar linha para a tabela
+                var tr = document.createElement('tr');
+
+                //criar celulas
+                var td_tipo = document.createElement('td');
+                var td_total = document.createElement('td');
+
+                //Adicionar valores no td
+                td_tipo.append(lista[i]["tipo"]);
+                td_total.append(lista[i]["total"]);
+                    
+                //Adiciona o td no tr
+                tr.append(td_tipo);
+                tr.append(td_total);
+
+                //Adiciona o tr na table
+                table.append(tr);
+            }
+
+        }
+    }
+
 
 </script>
 
 <!-- CSS -->
 <style>
 
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
+
 
 </style>
