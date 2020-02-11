@@ -470,7 +470,7 @@ Escolha:
 <br>
 <br>
 
- <input id="btn" type="button" value="Consultar"/>
+ <!--input id="btn" type="button" value="Consultar"/-->
 <br>
 <br>
 
@@ -607,7 +607,7 @@ Escolha:
             }
         }
 
-	$("#btn").click(function() {
+	$("#btn", parent.document).click(function() {
 
 		var select_um = $("#select_um").val();
 		var municipio = $("#select_municipios").val();
@@ -754,7 +754,10 @@ Escolha:
                 $("#table_usina_fotovoltaica").empty();
             }
 
-            print();
+
+            parent.toPdf();
+
+            //print();
 
 
 		});
@@ -812,7 +815,9 @@ Escolha:
     //Usina Fotovoltaica
 	function montarTableUsinaFotovoltaica(lista)
     {
-        var table = $("#table_usina_fotovoltaica");
+        
+        //var table = $("#table_usina_fotovoltaica");
+        var table = $('#table_usina_fotovoltaica', parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         table.append("<th>TOTAL</th>");
@@ -838,7 +843,8 @@ Escolha:
     //Geologia
     function montarTableGeologia(lista)
     {
-        var table = $("#table_geologia");
+//        var table = $("#table_geologia");
+        var table = $("#table_geologia", parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         for(var i = 0; i < lista.length; i++)
@@ -860,7 +866,8 @@ Escolha:
     //Infraestrutura Transportes
     function montarTableInfraTransporte(lista, tipo, table_id)
     {
-        var table = $("#"+table_id);
+        //var table = $("#"+table_id);
+        var table = $("#"+table_id, parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         table.append("<th>TOTAL</th>");
@@ -886,7 +893,8 @@ Escolha:
     //Infraestrutura Energia
     function montarTableLinhas_Subestacoes(lista, situacao, table_id)
     {
-        var table = $("#"+table_id);
+        //var table = $("#"+table_id);
+        var table = $("#"+table_id, parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         table.append("<th>TOTAL</th>");
