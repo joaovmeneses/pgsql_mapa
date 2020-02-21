@@ -470,7 +470,7 @@ Escolha:
 <br>
 <br>
 
- <!--input id="btn" type="button" value="Consultar"/-->
+ <input id="btn" type="button" value="Consultar"/>
 <br>
 <br>
 
@@ -534,7 +534,7 @@ Escolha:
 </html>
 <script>
 
-    var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/';
+    var url = '../lara_pgsql_mapa/pgsql_mapa/public/';
 	//Função para executar assim que a página for completamente carregada e montar os selects
 	$(document).ready(function(){
         //get Municipios
@@ -607,7 +607,7 @@ Escolha:
             }
         }
 
-	$("#btn", parent.document).click(function() {
+	$("#btn").click(function() {
 
 		var select_um = $("#select_um").val();
 		var municipio = $("#select_municipios").val();

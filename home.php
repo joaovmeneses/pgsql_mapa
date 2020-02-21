@@ -8,8 +8,6 @@
     <iframe src="http://localhost/pgsql_mapa/index.php" width="800px" height="800px"></iframe>
   </body>
 
-    <button id="btn">concluir!</button>
-
   <div id="resultado">
     <!-- INFRA ENERGIA -->
     Linhas de Transmissão Existentes
@@ -65,8 +63,6 @@
     <table id="table_geologia" class="table">
     </table>
 </div>
-
-<input type="text" id="blur_input" onblur="toPdf()">
 
 </html>
 
