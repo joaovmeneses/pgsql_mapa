@@ -534,7 +534,7 @@ Escolha:
 </html>
 <script>
 
-    var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/';
+    var url = '../lara_pgsql_mapa/pgsql_mapa/public/';
 	//Função para executar assim que a página for completamente carregada e montar os selects
 	$(document).ready(function(){
         //get Municipios
@@ -754,7 +754,10 @@ Escolha:
                 $("#table_usina_fotovoltaica").empty();
             }
 
-            print();
+
+            parent.toPdf();
+
+            //print();
 
 
 		});
@@ -812,7 +815,9 @@ Escolha:
     //Usina Fotovoltaica
 	function montarTableUsinaFotovoltaica(lista)
     {
-        var table = $("#table_usina_fotovoltaica");
+        
+        //var table = $("#table_usina_fotovoltaica");
+        var table = $('#table_usina_fotovoltaica', parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         table.append("<th>TOTAL</th>");
@@ -838,7 +843,8 @@ Escolha:
     //Geologia
     function montarTableGeologia(lista)
     {
-        var table = $("#table_geologia");
+//        var table = $("#table_geologia");
+        var table = $("#table_geologia", parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         for(var i = 0; i < lista.length; i++)
@@ -860,7 +866,8 @@ Escolha:
     //Infraestrutura Transportes
     function montarTableInfraTransporte(lista, tipo, table_id)
     {
-        var table = $("#"+table_id);
+        //var table = $("#"+table_id);
+        var table = $("#"+table_id, parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         table.append("<th>TOTAL</th>");
@@ -886,7 +893,8 @@ Escolha:
     //Infraestrutura Energia
     function montarTableLinhas_Subestacoes(lista, situacao, table_id)
     {
-        var table = $("#"+table_id);
+        //var table = $("#"+table_id);
+        var table = $("#"+table_id, parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
         table.append("<th>TOTAL</th>");
