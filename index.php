@@ -146,7 +146,7 @@ Escolha:
                                 </label>
                             </div>
 
-                            <!--div class="col-lg-2">
+                            <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="DUTOVIAS" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Dutovias
@@ -160,7 +160,7 @@ Escolha:
                                 </label>
                             </div>
 
-                            <div class="col-lg-2">
+                            <!--div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="LINHAS DE CABOTAGEM" name="infra_transporte">
                                 <label class="form-check-label" for="defaultCheck1">Linhas de Cabotagem</label>
                             </div>
@@ -746,6 +746,7 @@ Escolha:
             // ### Montar table Infra Transporte ###
             if (typeof data['Infraestrutura Transporte'] !== 'undefined')
             {   
+                
                 //Verificar RODOVIAS-DNIT
                 if (typeof data['Infraestrutura Transporte']['RODOVIAS-DNIT'] !== 'undefined')
                 {
@@ -773,11 +774,31 @@ Escolha:
                     $("#table_aerodomos").empty();
                 }
 
+                //Verificar DUTOVIAS
+                if (typeof data['Infraestrutura Transporte']['DUTOVIAS'] !== 'undefined')
+                {
+                    montarTableInfraTransporte(data['Infraestrutura Transporte']['DUTOVIAS'], "tipo", "table_dutovias");
+                } else 
+                {
+                    $("#table_dutovias").empty();
+                }
+
+                //Verificar FERROVIAS
+                if (typeof data['Infraestrutura Transporte']['FERROVIAS'] !== 'undefined')
+                {
+                    montarTableInfraTransporte(data['Infraestrutura Transporte']['FERROVIAS'], "tipo", "table_ferrovias");
+                } else 
+                {
+                    $("#table_ferrovias").empty();
+                }
+
             } else 
             {   //Apagar tables se n forem selecionadas
                 $("#table_rodovias_dnit").empty();
                 $("#table_estradas_ibge").empty();
                 $("#table_aerodomos").empty();
+                $("#table_dutovias").empty();
+                $("#table_ferrovias").empty();
 
             }
 

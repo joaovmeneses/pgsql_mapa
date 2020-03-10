@@ -51,6 +51,16 @@
     <table id="table_aerodomos" class="table">
     </table>
 
+    Ferrovias
+    <br>
+    <table id="table_ferrovias" class="table">
+    </table>
+
+    Dutovias
+    <br>
+    <table id="table_dutovias" class="table">
+    </table>
+    
     <!-- RECURSO SOLAR -->
     Usinas Fotovoltaicas
     <br>
