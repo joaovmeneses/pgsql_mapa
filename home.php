@@ -54,7 +54,7 @@
     <!-- RECURSO SOLAR -->
     Usinas Fotovoltaicas
     <br>
-    <table id="table_usina_fotovoltaica" class="table">
+    <table id="table_usinas_fotovoltaicas" class="table">
     </table>
 
     <!-- GEOLOGIA -->

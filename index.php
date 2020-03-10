@@ -103,6 +103,10 @@ Escolha:
                                 </label>
                             </div>
 
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="USINAS FOTOVOLTAICAS" name="infra_energia">
+                                <label class="form-check-label" for="defaultCheck1">Usinas Fotovoltaicas</label>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -455,10 +459,6 @@ Escolha:
                                 </label>
                             </div-->
 
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="USINAS FOTOVOLTAICAS" name="recurso_solar">
-                                <label class="form-check-label" for="defaultCheck1">Usinas Fotovoltaicas</label>
-                            </div>
 
                         </div>
                     </div>
@@ -520,7 +520,7 @@ Escolha:
     <!-- RECURSO SOLAR -->
     Usinas Fotovoltaicas
     <br>
-    <table id="table_usina_fotovoltaica" class="table">
+    <table id="table_usinas_fotovoltaicas" class="table">
     </table>
 
     <!-- GEOLOGIA -->
@@ -629,6 +629,43 @@ Escolha:
 		}
 	});
 
+    
+    function concluir(select_um, select_dois)
+    {
+        
+        //LISTAS
+        var infra_energia = [];
+        var infra_transporte = [];
+        //var pontos_referencia = [];
+        var geologia = [];
+        //var recursos_hidricos = [];
+        //var recurso_eolico = [];
+        var recurso_solar = [];
+
+        //CHAMADA DAS FUNÇÕES
+        infra_energia = getCheckeds("infra_energia", infra_energia);
+        infra_transporte = getCheckeds("infra_transporte", infra_transporte);
+        //pontos_referencia = getCheckeds("pontos_referencia", pontos_referencia);
+        geologia = getCheckeds("geologia", geologia);
+        //recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
+        //recurso_eolico = getCheckeds("recurso_eolico", recurso_eolico);
+        recurso_solar = getCheckeds("recurso_solar", recurso_solar);
+        console.log(infra_energia);
+        
+        //Fazer o request
+        request_ajax(
+            select_um,
+            select_dois, 
+            infra_energia, 
+            infra_transporte,
+            //pontos_referencia,
+            geologia,
+            //recursos_hidricos,
+            //recurso_eolico,
+            recurso_solar
+            );
+    }
+
     //requisição na API
     function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, /*recursos_hidricos, recurso_eolico,*/ recurso_solar)
 	{
@@ -645,7 +682,7 @@ Escolha:
                 //Verificar LINHAS DE TRANSMISSÃO EXISTENTES
                 if (typeof data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO EXISTENTES'] !== 'undefined')
                 {
-                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO EXISTENTES'], "EXISTENTE", "table_linhas_existentes");
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO EXISTENTES'], "table_linhas_existentes");
                 } else 
                 {
                     $("#table_linhas_existentes").empty();
@@ -654,7 +691,7 @@ Escolha:
                 //Verificar PARQUES EÓLICOS
                 if (typeof data['Infraestrutura Energia']['PARQUES EOLICOS'] !== 'undefined')
                 {
-                    montarTableInfraTransporte(data['Infraestrutura Energia']['PARQUES EOLICOS'], "tipo", "table_parques_eolicos");
+                    montarTableInfraTransporte(data['Infraestrutura Energia']['PARQUES EOLICOS'], "table_parques_eolicos");
                 } else 
                 {
                     $("#table_parques_eolicos").empty();
@@ -663,7 +700,7 @@ Escolha:
                 //Verificar SUBESTAÇÃO CONTRATADA
                 if (typeof data['Infraestrutura Energia']['SUBESTACAO CONTRATADAS'] !== 'undefined')
                 {
-                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['SUBESTACAO CONTRATADAS'], "CONTRATADA", "table_subestacao_contratada");
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['SUBESTACAO CONTRATADAS'], "table_subestacao_contratada");
                 } else 
                 {
                     $("#table_subestacao_contratada").empty();
@@ -672,7 +709,7 @@ Escolha:
                 //Verificar SUBESTACAO EXISTENTE
                 if (typeof data['Infraestrutura Energia']['SUBESTACAO EXISTENTE'] !== 'undefined')
                 {
-                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['SUBESTACAO EXISTENTE'], "EXISTENTE", "table_subestacao_existente");
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['SUBESTACAO EXISTENTE'], "table_subestacao_existente");
                 } else 
                 {
                     $("#table_subestacao_existente").empty();
@@ -681,10 +718,18 @@ Escolha:
                 //Verificar LINHAS DE TRANSMISSÃO PLANEJADAS
                 if (typeof data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO PLANEJADAS'] !== 'undefined')
                 {
-                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO PLANEJADAS'], "PLANEJADA", "table_linhas_planejadas");
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['LINHAS DE TRANSMISSAO PLANEJADAS'], "table_linhas_planejadas");
                 } else 
                 {
                     $("#table_linhas_planejadas").empty();
+                }
+
+                if (typeof data['Infraestrutura Energia']['USINAS FOTOVOLTAICAS'] !== 'undefined') 
+                {
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['USINAS FOTOVOLTAICAS'], "table_usinas_fotovoltaicas");
+                } else 
+                {
+                    $("#table_usina_fotovoltaica").empty();
                 }
 
             } else 
@@ -694,6 +739,7 @@ Escolha:
                 $("#table_subestacao_contratada").empty();
                 $("#table_subestacao_existente").empty();
                 $("#table_linhas_planejadas").empty();
+                $("#table_usina_fotovoltaica").empty();
 
             }
 
@@ -746,13 +792,7 @@ Escolha:
 
 
             // ### Montar table Usinas Fotovoltaicas ###
-            if (typeof data['Recurso Solar'] !== 'undefined') 
-            {
-                montarTableUsinaFotovoltaica(data['Recurso Solar']['USINAS FOTOVOLTAICAS']);
-            } else 
-            {
-                $("#table_usina_fotovoltaica").empty();
-            }
+            
 
 
             parent.toPdf();
@@ -772,42 +812,6 @@ Escolha:
         });
 
         return lista;
-    }
-
-
-    function concluir(select_um, select_dois)
-    {
-        
-        //LISTAS
-        var infra_energia = [];
-        var infra_transporte = [];
-        //var pontos_referencia = [];
-        var geologia = [];
-        //var recursos_hidricos = [];
-        //var recurso_eolico = [];
-        var recurso_solar = [];
-
-        //CHAMADA DAS FUNÇÕES
-        infra_energia = getCheckeds("infra_energia", infra_energia);
-        infra_transporte = getCheckeds("infra_transporte", infra_transporte);
-        //pontos_referencia = getCheckeds("pontos_referencia", pontos_referencia);
-        geologia = getCheckeds("geologia", geologia);
-        //recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
-        //recurso_eolico = getCheckeds("recurso_eolico", recurso_eolico);
-        recurso_solar = getCheckeds("recurso_solar", recurso_solar);
-        
-        //Fazer o request
-        request_ajax(
-            select_um,
-            select_dois, 
-            infra_energia, 
-            infra_transporte,
-            //pontos_referencia,
-            geologia,
-            //recursos_hidricos,
-            //recurso_eolico,
-            recurso_solar
-            );
     }
 
     // [#] MONTAR TABLES
@@ -891,9 +895,11 @@ Escolha:
     }
 
     //Infraestrutura Energia
-    function montarTableLinhas_Subestacoes(lista, situacao, table_id)
+    function montarTableLinhas_Subestacoes(lista, table_id)
     {
         //var table = $("#"+table_id);
+        console.log(table_id);
+        console.log(lista);
         var table = $("#"+table_id, parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
@@ -901,27 +907,24 @@ Escolha:
         for(var i = 0; i < lista.length; i++)
         {
     
-            if(lista[i]["situacao"] == situacao)
-            {
-                console.log('ok');
-                //Criar linha para a tabela
-                var tr = document.createElement('tr');
+            console.log('ok');
+            //Criar linha para a tabela
+            var tr = document.createElement('tr');
 
-                //criar celulas
-                var td_tipo = document.createElement('td');
-                var td_total = document.createElement('td');
+            //criar celulas
+            var td_tipo = document.createElement('td');
+            var td_total = document.createElement('td');
 
-                //Adicionar valores no td
-                td_tipo.append(lista[i]["tipo"]);
-                td_total.append(lista[i]["total"]);
-                    
-                //Adiciona o td no tr
-                tr.append(td_tipo);
-                tr.append(td_total);
+            //Adicionar valores no td
+            td_tipo.append(lista[i]["tipo"]);
+            td_total.append(lista[i]["total"]);
+                
+            //Adiciona o td no tr
+            tr.append(td_tipo);
+            tr.append(td_total);
 
-                //Adiciona o tr na table
-                table.append(tr);
-            }
+            //Adiciona o tr na table
+            table.append(tr);
 
         }
     }
