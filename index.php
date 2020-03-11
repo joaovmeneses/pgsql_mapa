@@ -245,7 +245,7 @@ Escolha:
                     <div class="card-body">
                         <div class="row">
                         
-                            <!--div class="col-lg-2">
+                            <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="AFLORAMENTO" name="geologia">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Afloramento
@@ -253,9 +253,16 @@ Escolha:
                             </div>
                         
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="ESTRACAO MINERAL" name="geologia">
+                                <input class="form-check-input" type="checkbox" value="RECURSOS MINERAIS" name="geologia">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Estração Mineral
+                                    Recursos Minerais
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="EXTRACAO MINERAL" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Extração Mineral
                                 </label>
                             </div>
 
@@ -283,11 +290,16 @@ Escolha:
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="LITOLOGIA" name="geologia">
                                 <label class="form-check-label" for="defaultCheck1">Litologia</label>
-                            </div-->
+                            </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="GEOMORFOLOGIA" name="geologia">
-                                <label class="form-check-label" for="defaultCheck1">Geomorfologia</label>
+                                <input class="form-check-input" type="checkbox" value="GEOMORFOLOGIA LINEAR" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">Geomorfologia Linear</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="GEOMORFOLOGIA PONTO" name="geologia">
+                                <label class="form-check-label" for="defaultCheck1">Geomorfologia Ponto</label>
                             </div>
 
                         </div>
@@ -650,7 +662,7 @@ Escolha:
         //recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
         //recurso_eolico = getCheckeds("recurso_eolico", recurso_eolico);
         recurso_solar = getCheckeds("recurso_solar", recurso_solar);
-        console.log(infra_energia);
+
         
         //Fazer o request
         request_ajax(
@@ -805,10 +817,88 @@ Escolha:
             // ### Montar table Geologia ###
             if (typeof data['Geologia'] !== 'undefined') 
             {
-                montarTableGeologia(data['Geologia']['GEOMORFOLOGIA']);
+
+                console.log(data['Geologia']);
+                if (typeof data['Geologia']['GEOMORFOLOGIA LINEAR'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['GEOMORFOLOGIA LINEAR'], 'table_geomorfologia_linear');
+                } else 
+                {
+                    $("#table_geomorfologia_linear").empty();
+                }
+
+                if (typeof data['Geologia']['GEOMORFOLOGIA PONTO'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['GEOMORFOLOGIA PONTO'], 'table_geomorfologia_ponto');
+                } else 
+                {
+                    $("#table_geomorfologia_ponto").empty();
+                }
+
+                if (typeof data['Geologia']['AFLORAMENTO'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['AFLORAMENTO'], 'table_afloramento');
+                } else 
+                {
+                    $("#table_afloramento").empty();
+                }
+
+                if (typeof data['Geologia']['RECURSOS MINERAIS'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['RECURSOS MINERAIS'], 'table_recursos_minerais');
+                } else 
+                {
+                    $("#table_recursos_minerais").empty();
+                }
+
+                if (typeof data['Geologia']['RIFT'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['RIFT'], 'table_rift');
+                } else 
+                {
+                    $("#table_rift").empty();
+                }
+
+                if (typeof data['Geologia']['ESTRUTURA'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['ESTRUTURA'], 'table_estrutura');
+                } else 
+                {
+                    $("#table_estrutura").empty();
+                }
+
+                if (typeof data['Geologia']['DIQUES'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['DIQUES'], 'table_diques');
+                } else 
+                {
+                    $("#table_diques").empty();
+                }
+
+                if (typeof data['Geologia']['EXTRACAO MINERAL'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['EXTRACAO MINERAL'], 'table_extracao_mineral');
+                } else 
+                {
+                    $("#table_extracao_mineral").empty();
+                }
+
+                if (typeof data['Geologia']['LITOLOGIA'] !== 'undefined') 
+                {
+                    montarTableGeologia(data['Geologia']['LITOLOGIA'], 'table_litologia');
+                } else 
+                {
+                    $("#table_litologia").empty();
+                }
+
             } else 
             {
                 $("#table_geologia").empty();
+                $("#table_recursos_minerais").empty();
+                $("#table_afloramento").empty();
+                $("#table_geomorfologia_ponto").empty();
+                $("#table_geomorfologia_linear").empty();
+
             }
 
 
@@ -866,22 +956,25 @@ Escolha:
     }
 
     //Geologia
-    function montarTableGeologia(lista)
+    function montarTableGeologia(lista, table_id)
     {
-//        var table = $("#table_geologia");
-        var table = $("#table_geologia", parent.document);
+        var table = $("#"+table_id, parent.document);
         table.empty();
         table.append("<th>TIPO</th>");
+        table.append("<th>TOTAL</th>");
         for(var i = 0; i < lista.length; i++)
         {
             //Criar linha para a tabela
             var tr = document.createElement('tr');
             //criar celulas
             var td_tipo = document.createElement('td');
+            var td_total = document.createElement('td');
             //Adicionar valores no td
             td_tipo.append(lista[i]["tipo"]);
+            td_total.append(lista[i]["total"]);
             //Adiciona o td no tr
             tr.append(td_tipo);
+            tr.append(td_total);
             //Adiciona o tr na table
             table.append(tr);
 

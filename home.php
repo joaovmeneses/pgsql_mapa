@@ -68,9 +68,49 @@
     </table>
 
     <!-- GEOLOGIA -->
-    Geologia
+    Geomorfologia Linear
     <br>
-    <table id="table_geologia" class="table">
+    <table id="table_geomorfologia_linear" class="table">
+    </table>
+
+    Geomorfologia Ponto
+    <br>
+    <table id="table_geomorfologia_ponto" class="table">
+    </table>
+
+    Diques
+    <br>
+    <table id="table_diques" class="table">
+    </table>
+
+    Rift
+    <br>
+    <table id="table_rift" class="table">
+    </table>
+
+    Estrutura
+    <br>
+    <table id="table_estrutura" class="table">
+    </table>
+
+    Afloramento
+    <br>
+    <table id="table_afloramento" class="table">
+    </table>
+
+    Recursos Minerais
+    <br>
+    <table id="table_recursos_minerais" class="table">
+    </table>
+
+    Litologia
+    <br>
+    <table id="table_litologia" class="table">
+    </table>
+
+    Extração Mineral
+    <br>
+    <table id="table_extracao_mineral" class="table">
     </table>
 </div>
 
@@ -80,7 +120,7 @@
 
   function toPdf()
   {
-    print();
+    //print();
   }
 
 </script>
