@@ -436,38 +436,38 @@ Escolha:
                     <div class="card-body">
                         <div class="row">
                         
-                            <!--div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="DIFUSA" name="recurso_solar">
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="HORIZONTAL" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Difusa
+                                    Irradiação solar global horizontal em Wh/m².dia
                                 </label>
                             </div>
                         
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="DIRETA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Direta
+                                    Irradiação solar direta normal em Wh/m².dia
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="FOTO ATIVA" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="DIFUSA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Foto Ativa
+                                    Irradiação solar difusa em Wh/m².dia
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="GLOBAL" name="recurso_solar">
+                                <input class="form-check-input" type="checkbox" value="FOTOSSINTETICAMENTE ATIVA" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Global
+                                    Irradiação solar fotossinteticamente ativa em Wh/m².dia
                                 </label>
                             </div>
 
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="PLANO INCLINADO" name="recurso_solar">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Plano Inclinado
+                                    Irradiação solar no plano inclinado na latitude em Wh/m².dia
                                 </label>
                             </div-->
 
@@ -818,7 +818,6 @@ Escolha:
             if (typeof data['Geologia'] !== 'undefined') 
             {
 
-                console.log(data['Geologia']);
                 if (typeof data['Geologia']['GEOMORFOLOGIA LINEAR'] !== 'undefined') 
                 {
                     montarTableGeologia(data['Geologia']['GEOMORFOLOGIA LINEAR'], 'table_geomorfologia_linear');
@@ -903,8 +902,57 @@ Escolha:
 
 
             // ### Montar table Usinas Fotovoltaicas ###
-            
+            if (typeof data['Recurso Solar'] !== 'undefined') 
+            {
+                console.log(data['Recurso Solar']);
+                if (typeof data['Recurso Solar']['HORIZONTAL'] !== 'undefined') 
+                {
+                    montarTableRecursoSolar(data['Recurso Solar']['HORIZONTAL'], 'table_irradiacao_solar_horizontal');
+                } else 
+                {
+                    $("#table_irradiacao_solar_horizontal").empty();
+                }
 
+                if (typeof data['Recurso Solar']['DIRETA'] !== 'undefined') 
+                {
+                    montarTableRecursoSolar(data['Recurso Solar']['DIRETA'], 'table_irradiacao_solar_direta');
+                } else 
+                {
+                    $("#table_irradiacao_solar_direta").empty();
+                }
+
+                if (typeof data['Recurso Solar']['DIFUSA'] !== 'undefined') 
+                {
+                    montarTableRecursoSolar(data['Recurso Solar']['DIFUSA'], 'table_irradiacao_solar_difusa');
+                } else 
+                {
+                    $("#table_irradiacao_solar_difusa").empty();
+                }
+
+                if (typeof data['Recurso Solar']['FOTOSSINTETICAMENTE ATIVA'] !== 'undefined') 
+                {
+                    montarTableRecursoSolar(data['Recurso Solar']['FOTOSSINTETICAMENTE ATIVA'], 'table_irradiacao_solar_fotossinteticamente');
+                } else 
+                {
+                    $("#table_irradiacao_solar_fotossinteticamente").empty();
+                }
+
+                if (typeof data['Recurso Solar']['PLANO INCLINADO'] !== 'undefined') 
+                {
+                    montarTableRecursoSolar(data['Recurso Solar']['PLANO INCLINADO'], 'table_irradiacao_solar_plano_inclinado');
+                } else 
+                {
+                    $("#table_irradiacao_solar_plano_inclinado").empty();
+                }
+            } else 
+            {
+                $("#table_irradiacao_solar_horizontal").empty();
+                $("#table_irradiacao_solar_direta").empty();
+                $("#table_irradiacao_solar_difusa").empty();
+                $("#table_irradiacao_solar_fotossinteticamente").empty();
+                $("#table_irradiacao_solar_plano_inclinado").empty();
+
+            }
 
             parent.toPdf();
 
@@ -928,27 +976,30 @@ Escolha:
     // [#] MONTAR TABLES
     
     //Usina Fotovoltaica
-	function montarTableUsinaFotovoltaica(lista)
+	function montarTableRecursoSolar(lista, table_id)
     {
-        
         //var table = $("#table_usina_fotovoltaica");
-        var table = $('#table_usina_fotovoltaica', parent.document);
+        var table = $('#'+table_id, parent.document);
         table.empty();
-        table.append("<th>TIPO</th>");
-        table.append("<th>TOTAL</th>");
+        table.append("<th>MÉDIA</th>");
+        table.append("<th>MÁXIMO</th>");
+        table.append("<th>MINIMO</th>");
         for(var i = 0; i < lista.length; i++)
         {
             //Criar linha para a tabela
             var tr = document.createElement('tr');
             //criar celulas
-            var td_tipo = document.createElement('td');
-            var td_total = document.createElement('td');
+            var td_media = document.createElement('td');
+            var td_max = document.createElement('td');
+            var td_min = document.createElement('td');
             //Adicionar valores no td
-            td_tipo.append(lista[i]["tipo"]);
-            td_total.append(lista[i]["total"]);
+            td_media.append(lista[i]["media"]);
+            td_max.append(lista[i]["maximo"]);
+            td_min.append(lista[i]["minimo"]);
             //Adiciona o td no tr
-            tr.append(td_tipo);
-            tr.append(td_total);
+            tr.append(td_media);
+            tr.append(td_max);
+            tr.append(td_min);
             //Adiciona o tr na table
             table.append(tr);
 
@@ -1012,8 +1063,6 @@ Escolha:
     function montarTableLinhas_Subestacoes(lista, table_id)
     {
         //var table = $("#"+table_id);
-        console.log(table_id);
-        console.log(lista);
         var table = $("#"+table_id, parent.document);
         table.empty();
         table.append("<th>TIPO</th>");

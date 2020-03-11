@@ -62,9 +62,29 @@
     </table>
     
     <!-- RECURSO SOLAR -->
-    Usinas Fotovoltaicas
+    Irradiação solar global horizontal em Wh/m².dia
     <br>
-    <table id="table_usinas_fotovoltaicas" class="table">
+    <table id="table_irradiacao_solar_horizontal" class="table">
+    </table>
+
+    Irradiação solar direta normal em Wh/m².dia
+    <br>
+    <table id="table_irradiacao_solar_direta" class="table">
+    </table>
+
+    Irradiação solar difusa em Wh/m².dia
+    <br>
+    <table id="table_irradiacao_solar_difusa" class="table">
+    </table>
+
+    Irradiação solar fotossinteticamente ativa em Wh/m².dia
+    <br>
+    <table id="table_irradiacao_solar_fotossinteticamente" class="table">
+    </table>
+
+    Irradiação solar no plano inclinado na latitude em Wh/m².dia
+    <br>
+    <table id="table_irradiacao_solar_plano_inclinado" class="table">
     </table>
 
     <!-- GEOLOGIA -->
