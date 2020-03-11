@@ -325,7 +325,6 @@ Escolha:
                                     Domínios Hidrogeológicos (CPRM)
                                 </label>
                             </div>
-
                             
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="POCOS-SERHID" name="recursos_hidricos">
@@ -423,32 +422,11 @@ Escolha:
                                 <input class="form-check-input" type="checkbox" value="ISOIETA MMA" name="recursos_hidricos">
                                 <label class="form-check-label" for="defaultCheck1"> Isoietas (MMA) </label>
                             </div>
-                            
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="DRENAGENS-ANA" name="recursos_hidricos">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Drenagens-ANA
-                                </label>
-                            </div>
-                        
-                            <div class="col-lg-2">
+                      
+                            <!--div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="HIDROGRAFIA INTEGRADA-ANA" name="recursos_hidricos">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Hidrografia Integrada-ANA
-                                </label>
-                            </div>
-
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="RESERVATORIOS-ANA" name="recursos_hidricos">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Reservatórios-ANA
-                                </label>
-                            </div>
-
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="DOMINIOS HIDROGEOLOGICOS" name="recursos_hidricos">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Dominios Hidrogeologicos
                                 </label>
                             </div>
 
@@ -459,11 +437,25 @@ Escolha:
                                     Hidrografia-SERHID
                                 </label>
                             </div>
-
+      
                             <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="DRENAGENS-ANA" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Drenagens-ANA
+                                </label>
+                            </div-->
+                        
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="RESERVATORIOS-ANA" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Reservatórios-ANA
+                                </label>
+                            </div>
+
+                            <!--div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="RESERVATORIOS-SERHID" name="recursos_hidricos">
                                 <label class="form-check-label" for="defaultCheck1">Reservatórios-SERHID</label>
-                            </div>
+                            </div-->
 
                         </div>
                     </div>
@@ -569,62 +561,6 @@ Escolha:
  <input id="btn" type="button" value="Consultar"/>
 <br>
 <br>
-
-<div id="resultado">
-    <!-- INFRA ENERGIA -->
-    Linhas de Transmissão Existentes
-    <br>
-    <table id="table_linhas_existentes" class="table">
-    </table>
-
-    Parques Eólicos
-    <br>
-    <table id="table_parques_eolicos" class="table">
-    </table>
-
-    Subestação Contratadas
-    <br>
-    <table id="table_subestacao_contratada" class="table">
-    </table>
-
-    Subestação Existentes
-    <br>
-    <table id="table_subestacao_existente" class="table">
-    </table>
-
-    Linhas de Transmissão Planejadas
-    <br>
-    <table id="table_linhas_planejadas" class="table">
-    </table>
-    
-    <!-- INFRA TRANSPORTE -->
-    Rodovias-DNIT
-    <br>
-    <table id="table_rodovias_dnit" class="table">
-    </table>
-
-    Estradas-IBGE
-    <br>
-    <table id="table_estradas_ibge" class="table">
-    </table>
-
-    Aeródomos
-    <br>
-    <table id="table_aerodomos" class="table">
-    </table>
-
-    <!-- RECURSO SOLAR -->
-    Usinas Fotovoltaicas
-    <br>
-    <table id="table_usinas_fotovoltaicas" class="table">
-    </table>
-
-    <!-- GEOLOGIA -->
-    Geologia
-    <br>
-    <table id="table_geologia" class="table">
-    </table>
-</div>
 
 </body>
 </html>
@@ -734,7 +670,7 @@ Escolha:
         var infra_transporte = [];
         //var pontos_referencia = [];
         var geologia = [];
-        //var recursos_hidricos = [];
+        var recursos_hidricos = [];
         //var recurso_eolico = [];
         var recurso_solar = [];
 
@@ -743,7 +679,7 @@ Escolha:
         infra_transporte = getCheckeds("infra_transporte", infra_transporte);
         //pontos_referencia = getCheckeds("pontos_referencia", pontos_referencia);
         geologia = getCheckeds("geologia", geologia);
-        //recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
+        recursos_hidricos = getCheckeds("recursos_hidricos", recursos_hidricos);
         //recurso_eolico = getCheckeds("recurso_eolico", recurso_eolico);
         recurso_solar = getCheckeds("recurso_solar", recurso_solar);
 
@@ -756,19 +692,19 @@ Escolha:
             infra_transporte,
             //pontos_referencia,
             geologia,
-            //recursos_hidricos,
+            recursos_hidricos,
             //recurso_eolico,
             recurso_solar
             );
     }
 
     //requisição na API
-    function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, /*recursos_hidricos, recurso_eolico,*/ recurso_solar)
+    function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, recursos_hidricos,/* recurso_eolico,*/ recurso_solar)
 	{
 		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/request';
 
-		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte, "geologia" : geologia, "recurso_solar" : recurso_solar
-        /*"pontos_referencia" : pontos_referencia, "recursos_hidricos" : recursos_hidricos, "recurso_eolico" : recurso_eolico,*/ }, function(data)
+		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte, "geologia" : geologia, "recurso_solar" : recurso_solar,
+        /*"pontos_referencia" : pontos_referencia,*/ "recursos_hidricos" : recursos_hidricos,/* "recurso_eolico" : recurso_eolico,*/ }, function(data)
 		{
 
             // ### Montar Table Infra Energia ###
@@ -1037,6 +973,189 @@ Escolha:
 
             }
 
+            if (typeof data['Recursos Hídricos'] !== 'undefined') 
+            {
+                console.log(data['Recursos Hídricos']);
+                if (typeof data['Recursos Hídricos']['DOMINIOS HIDROGEOLOGICOS-CPRM'] !== 'undefined') 
+                {
+                    montarTableRecursosHidricos(data['Recursos Hídricos']['DOMINIOS HIDROGEOLOGICOS-CPRM'], 'table_dominios_hidrogeologicos_cprm');
+                } else 
+                {
+                    $("#table_dominios_hidrogeologicos_cprm").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['POCOS-SERHID'] !== 'undefined') 
+                {
+                    montarTableRecursosHidricos(data['Recursos Hídricos']['POCOS-SERHID'], 'table_pocos_serhid');
+                } else 
+                {
+                    $("#table_pocos_serhid").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['POCOS-CPRM'] !== 'undefined') 
+                {
+                    montarTableRecursosHidricos(data['Recursos Hídricos']['POCOS-CPRM'], 'table_pocos_cprm');
+                } else 
+                {
+                    $("#table_pocos_cprm").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ADUTORAS-SERHID'] !== 'undefined') 
+                {
+                    montarTableRecursosHidricos(data['Recursos Hídricos']['ADUTORAS-SERHID'], 'table_adutoras_serhid');
+                } else 
+                {
+                    $("#table_adutoras_serhid").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['BACIAS HIDROGRAFICAS-SERHID'] !== 'undefined') 
+                {
+                    montarTableRecursosHidricos(data['Recursos Hídricos']['BACIAS HIDROGRAFICAS-SERHID'], 'table_bacias_hidrograficas_serhid');
+                } else 
+                {
+                    $("#table_bacias_hidrograficas_serhid").empty();
+                }
+                
+                if (typeof data['Recursos Hídricos']['ANCO HIDRICO-SNIRH'] !== 'undefined') 
+                {
+                    montarTableRecursosHidricos(data['Recursos Hídricos']['ANCO HIDRICO-SNIRH'], 'table_balanco_hidrico_snirh');
+                } else 
+                {
+                    $("#table_balanco_hidrico_snirh").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA MEDIA'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA MEDIA'], 'table_isoietas_media');
+                } else 
+                {
+                    $("#table_isoietas_media").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA JAN'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA JAN'], 'table_isoietas_jan');
+                } else 
+                {
+                    $("#table_isoietas_jan").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA FEV'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA FEV'], 'table_isoietas_fev');
+                } else 
+                {
+                    $("#table_isoietas_fev").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA MAR'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA MAR'], 'table_isoietas_mar');
+                } else 
+                {
+                    $("#table_isoietas_mar").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA ABR'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA ABR'], 'table_isoietas_abr');
+                } else 
+                {
+                    $("#table_isoietas_abr").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA MAI'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA MAI'], 'table_isoietas_mai');
+                } else 
+                {
+                    $("#table_isoietas_mai").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA JUN'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA JUN'], 'table_isoietas_jun');
+                } else 
+                {
+                    $("#table_isoietas_jun").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA JUL'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA JUL'], 'table_isoietas_jul');
+                } else 
+                {
+                    $("#table_isoietas_jul").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA AGO'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA AGO'], 'table_isoietas_ago');
+                } else 
+                {
+                    $("#table_isoietas_ago").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA SET'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA SET'], 'table_isoietas_set');
+                } else 
+                {
+                    $("#table_isoietas_set").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA OUT'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA OUT'], 'table_isoietas_out');
+                } else 
+                {
+                    $("#table_isoietas_out").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA NOV'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA NOV'], 'table_isoietas_nov');
+                } else 
+                {
+                    $("#table_isoietas_nov").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA DEZ'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA DEZ'], 'table_isoietas_dez');
+                } else 
+                {
+                    $("#table_isoietas_dez").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['ISOIETA MMA'] !== 'undefined') 
+                {
+                    montarTableIsoietas(data['Recursos Hídricos']['ISOIETA MMA'], 'table_isoietas_mma');
+                } else 
+                {
+                    $("#table_isoietas_mma").empty();
+                }
+
+                if (typeof data['Recursos Hídricos']['RESERVATORIOS-ANA'] !== 'undefined') 
+                {
+                    montarTableRecursosHidricos(data['Recursos Hídricos']['RESERVATORIOS-ANA'], 'table_reservatorios_ana');
+                } else 
+                {
+                    $("#table_reservatorios_ana").empty();
+                }
+
+                
+
+            } else 
+            {
+                $("#").empty();
+                $("#").empty();
+                $("#").empty();
+                $("#").empty();
+                $("#").empty();
+
+            }
+
             parent.toPdf();
 
             //print();
@@ -1083,6 +1202,54 @@ Escolha:
             tr.append(td_media);
             tr.append(td_max);
             tr.append(td_min);
+            //Adiciona o tr na table
+            table.append(tr);
+
+        }
+    }
+
+    //Recursos Hídricos
+    function montarTableRecursosHidricos(lista, table_id)
+    {
+        var table = $("#"+table_id, parent.document);
+        table.empty();
+        table.append("<th>TIPO</th>");
+        table.append("<th>TOTAL</th>");
+        for(var i = 0; i < lista.length; i++)
+        {
+            //Criar linha para a tabela
+            var tr = document.createElement('tr');
+            //criar celulas
+            var td_tipo = document.createElement('td');
+            var td_total = document.createElement('td');
+            //Adicionar valores no td
+            td_tipo.append(lista[i]["tipo"]);
+            td_total.append(lista[i]["total"]);
+            //Adiciona o td no tr
+            tr.append(td_tipo);
+            tr.append(td_total);
+            //Adiciona o tr na table
+            table.append(tr);
+
+        }
+    }
+
+    //Recursos Hídricos - ISOIETAS
+    function montarTableIsoietas(lista, table_id)
+    {
+        var table = $("#"+table_id, parent.document);
+        table.empty();
+        table.append("<th>TIPO</th>");
+        for(var i = 0; i < lista.length; i++)
+        {
+            //Criar linha para a tabela
+            var tr = document.createElement('tr');
+            //criar celulas
+            var td_tipo = document.createElement('td');
+            //Adicionar valores no td
+            td_tipo.append(lista[i]["tipo"]);
+            //Adiciona o td no tr
+            tr.append(td_tipo);
             //Adiciona o tr na table
             table.append(tr);
 

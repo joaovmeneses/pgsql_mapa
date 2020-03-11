@@ -132,6 +132,114 @@
     <br>
     <table id="table_extracao_mineral" class="table">
     </table>
+
+    <!-- RECURSOS HIDRÍCOS -->
+
+    Domínios Hidrogeológicos (CPRM)
+    <br>
+    <table id="table_dominios_hidrogeologicos_cprm" class="table">
+    </table>
+
+    Poços-SERHID
+    <br>
+    <table id="table_pocos_serhid" class="table">
+    </table>
+
+    Poços-CPRM
+    <br>
+    <table id="table_pocos_cprm" class="table">
+    </table>
+
+    Adutoras-SERHID
+    <br>
+    <table id="table_adutoras_serhid" class="table">
+    </table>
+
+    Bácias Hidrográficas-SERHID
+    <br>
+    <table id="table_bacias_hidrograficas_serhid" class="table">
+    </table>
+
+    Balanço Hídrico (SNIRH)
+    <br>
+    <table id="table_balanco_hidrico_snirh" class="table">
+    </table>
+
+    Isoietas (CPRM: Média Anual 1977 a 2006)
+    <br>
+    <table id="table_isoietas_media" class="table">
+    </table>
+
+    Isoietas Mensal Janeiro (CPRM)
+    <br>
+    <table id="table_isoietas_jan" class="table">
+    </table>
+
+    Isoietas Mensal Fevereiro (CPRM)
+    <br>
+    <table id="table_isoietas_fev" class="table">
+    </table>
+
+    Isoietas Mensal Março (CPRM)
+    <br>
+    <table id="table_isoietas_mar" class="table">
+    </table>
+
+    Isoietas Mensal Abril (CPRM)
+    <br>
+    <table id="table_isoietas_abr" class="table">
+    </table>
+
+    Isoietas Mensal Maio (CPRM)
+    <br>
+    <table id="table_isoietas_mai" class="table">
+    </table>
+
+    Isoietas Mensal Junho (CPRM)
+    <br>
+    <table id="table_isoietas_jun" class="table">
+    </table>
+
+    Isoietas Mensal Julho (CPRM)
+    <br>
+    <table id="table_isoietas_jul" class="table">
+    </table>
+
+    Isoietas Mensal Agosto (CPRM)
+    <br>
+    <table id="table_isoietas_ago" class="table">
+    </table>
+
+    Isoietas Mensal Setembro (CPRM)
+    <br>
+    <table id="table_isoietas_set" class="table">
+    </table>
+
+    Isoietas Mensal Outubro (CPRM)
+    <br>
+    <table id="table_isoietas_out" class="table">
+    </table>
+
+    Isoietas Mensal Novembro (CPRM)
+    <br>
+    <table id="table_isoietas_nov" class="table">
+    </table>
+    
+    Isoietas Mensal Dezembro (CPRM)
+    <br>
+    <table id="table_isoietas_dez" class="table">
+    </table>
+
+    Isoietas (MMA)
+    <br>
+    <table id="table_isoietas_mma" class="table">
+    </table>
+
+    Reservatórios-ANA
+    <br>
+    <table id="table_reservatorios_ana" class="table">
+    </table>
+
 </div>
 
 </html>
