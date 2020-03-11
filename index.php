@@ -307,7 +307,7 @@ Escolha:
                   </div>
                 </div>  
 
-                <!--div class="card">
+                <div class="card">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -319,6 +319,111 @@ Escolha:
                     <div class="card-body">
                         <div class="row">
                         
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="DOMINIOS HIDROGEOLOGICOS-CPRM" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Domínios Hidrogeológicos (CPRM)
+                                </label>
+                            </div>
+
+                            
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="POCOS-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Poços-SERHID</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="POCOS-CPRM" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Poços-CPRM
+                                </label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ADUTORAS-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Adutoras-SERHID</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="BACIAS HIDROGRAFICAS-SERHID" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Bácias Hidrográficas-SERHID</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="BALANCO HIDRICO-SNIRH" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1">Balanço Hídrico (SNIRH)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA MEDIA" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas (CPRM: Média Anual 1977 a 2006)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA JAN" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Janeiro (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA FEV" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Fevereiro (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA MAR" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Março (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA ABR" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Abril (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA MAI" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Maio (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA JUN" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Junho (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA JUL" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Julho (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA AGO" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Agosto (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA SET" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Setembro (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA OUT" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Outubro (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA NOV" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Novembro (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA DEZ" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas Mensal Dezembro (CPRM)</label>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input class="form-check-input" type="checkbox" value="ISOIETA MMA" name="recursos_hidricos">
+                                <label class="form-check-label" for="defaultCheck1"> Isoietas (MMA) </label>
+                            </div>
+                            
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="DRENAGENS-ANA" name="recursos_hidricos">
                                 <label class="form-check-label" for="defaultCheck1">
@@ -347,33 +452,12 @@ Escolha:
                                 </label>
                             </div>
 
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="POCOS-CPRM" name="recursos_hidricos">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Poços-CPRM
-                                </label>
-                            </div>
 
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="ADUTORAS-SERHID" name="recursos_hidricos">
-                                <label class="form-check-label" for="defaultCheck1">Adutoras-SERHID</label>
-                            </div>
-
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="BACIAS HIDROGRAFICAS-SERHID" name="recursos_hidricos">
-                                <label class="form-check-label" for="defaultCheck1">Bácias Hidrográficas-SERHID</label>
-                            </div>
-                            
                             <div class="col-lg-2">
                                 <input class="form-check-input" type="checkbox" value="HIDROGRAFIA-SERHID" name="recursos_hidricos">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Hidrografia-SERHID
                                 </label>
-                            </div>
-
-                            <div class="col-lg-2">
-                                <input class="form-check-input" type="checkbox" value="POCOS-SERHID" name="recursos_hidricos">
-                                <label class="form-check-label" for="defaultCheck1">Poços-SERHID</label>
                             </div>
 
                             <div class="col-lg-2">
@@ -384,7 +468,7 @@ Escolha:
                         </div>
                     </div>
                   </div>
-                </div-->  
+                </div>  
 
                 <!--div class="card">
                   <div class="card-header" id="headingTwo">
@@ -703,7 +787,7 @@ Escolha:
                 //Verificar PARQUES EÓLICOS
                 if (typeof data['Infraestrutura Energia']['PARQUES EOLICOS'] !== 'undefined')
                 {
-                    montarTableInfraTransporte(data['Infraestrutura Energia']['PARQUES EOLICOS'], "table_parques_eolicos");
+                    montarTableLinhas_Subestacoes(data['Infraestrutura Energia']['PARQUES EOLICOS'], "table_parques_eolicos");
                 } else 
                 {
                     $("#table_parques_eolicos").empty();
@@ -817,7 +901,6 @@ Escolha:
             // ### Montar table Geologia ###
             if (typeof data['Geologia'] !== 'undefined') 
             {
-
                 if (typeof data['Geologia']['GEOMORFOLOGIA LINEAR'] !== 'undefined') 
                 {
                     montarTableGeologia(data['Geologia']['GEOMORFOLOGIA LINEAR'], 'table_geomorfologia_linear');
