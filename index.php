@@ -674,6 +674,7 @@ Escolha:
         //var recurso_eolico = [];
         var recurso_solar = [];
 
+
         //CHAMADA DAS FUNÇÕES
         infra_energia = getCheckeds("infra_energia", infra_energia);
         infra_transporte = getCheckeds("infra_transporte", infra_transporte);
@@ -694,19 +695,20 @@ Escolha:
             geologia,
             recursos_hidricos,
             //recurso_eolico,
-            recurso_solar
+            recurso_solar,
+            parent.array_coords
             );
     }
 
     //requisição na API
-    function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, recursos_hidricos,/* recurso_eolico,*/ recurso_solar)
+    function request_ajax(select_um, select_dois, infra_energia, infra_transporte, /*pontos_referencia,*/ geologia, recursos_hidricos,/* recurso_eolico,*/ recurso_solar, coordenadas)
 	{
 		var url = 'http://localhost/lara_pgsql_mapa/pgsql_mapa/public/request';
 
 		$.post(url, {"info1": select_um, "info2": select_dois, "infra_energia": infra_energia, "infra_transporte": infra_transporte, "geologia" : geologia, "recurso_solar" : recurso_solar,
-        /*"pontos_referencia" : pontos_referencia,*/ "recursos_hidricos" : recursos_hidricos,/* "recurso_eolico" : recurso_eolico,*/ }, function(data)
+        /*"pontos_referencia" : pontos_referencia,*/ "recursos_hidricos" : recursos_hidricos,/* "recurso_eolico" : recurso_eolico,*/ polygon: coordenadas }, function(data)
 		{
-
+            console.log(data);
             // ### Montar Table Infra Energia ###
             if (typeof data['Infraestrutura Energia'] !== 'undefined')
             {   
@@ -1148,12 +1150,17 @@ Escolha:
 
             } else 
             {
-                $("#").empty();
-                $("#").empty();
-                $("#").empty();
-                $("#").empty();
-                $("#").empty();
+                //$("#").empty();
+                //$("#").empty();
+                //$("#").empty();
+                //$("#").empty();
+                //$("#").empty();
 
+            }
+
+            if (typeof data['Personalizado'] !== 'undefined')
+            {
+                montarTableRecursosHidricos(data['Personalizado'], "table_polygon");
             }
 
             parent.toPdf();
