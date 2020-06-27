@@ -573,6 +573,7 @@ Escolha:
         $.get(url+'getcidades', function(data)
         {
             createSelect(data, "select_municipios", 'nm_municip');
+            console.log(data);
         });
         //get Microrregioes
         $.get(url+'getmicrorregioes', function(data)
@@ -1150,12 +1151,27 @@ Escolha:
 
             } else 
             {
-                //$("#").empty();
-                //$("#").empty();
-                //$("#").empty();
-                //$("#").empty();
-                //$("#").empty();
-
+                $("#table_dominios_hidrogeologicos_cprm").empty();
+                $("#table_pocos_serhid").empty();
+                $("#table_pocos_cprm").empty();
+                $("#table_adutoras_serhid").empty();
+                $("#table_bacias_hidrograficas_serhid").empty();
+                $("#table_balanco_hidrico_snirh").empty();
+                $("#table_isoietas_media").empty();
+                $("#table_isoietas_jan").empty();
+                $("#table_isoietas_fev").empty();
+                $("#table_isoietas_mar").empty();
+                $("#table_isoietas_abr").empty();
+                $("#table_isoietas_mai").empty();
+                $("#table_isoietas_jun").empty();
+                $("#table_isoietas_jul").empty();
+                $("#table_isoietas_ago").empty();
+                $("#table_isoietas_set").empty();
+                $("#table_isoietas_out").empty();
+                $("#table_isoietas_nov").empty();
+                $("#table_isoietas_dez").empty();
+                $("#table_isoietas_mma").empty();
+                $("#table_reservatorios_ana").empty();
             }
 
             if (typeof data['Personalizado'] !== 'undefined')
